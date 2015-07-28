@@ -5,17 +5,15 @@ import (
 	"testing"
 )
 
-func begin(funcName string) string {
-	fmt.Printf("Begin function: %s\n", funcName)
-	return funcName
-}
-
-func end(funcName string) string {
-	fmt.Printf("End function: %s\n", funcName)
-	return funcName
-}
-
 func TestDefer(t *testing.T) {
+	begin := func(funcName string) string {
+		fmt.Printf("Begin function: %s\n", funcName)
+		return funcName
+	}
+	end := func(funcName string) string {
+		fmt.Printf("End function: %s\n", funcName)
+		return funcName
+	}
 	defer end(begin("test"))
 
 	fmt.Println("In main function")
